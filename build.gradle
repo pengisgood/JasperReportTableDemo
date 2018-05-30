@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+
+group 'testJasperReport'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/' }
+    maven { url 'http://jasperreports.sourceforge.net/maven2/' }
+}
+
+dependencies {
+    compile 'org.springframework:spring-context-support'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.projectlombok:lombok:1.16.8'
+    compile 'net.sf.jasperreports:jasperreports:6.3.0'
+}
