@@ -72,6 +72,8 @@
 		</field>
 	</subDataset>
 	<subDataset name="ItemData" uuid="5522884f-251b-400c-b356-ba5bb5ea901e">
+		<parameter name="groupName" class="java.lang.String"/>
+		<parameter name="subtotal" class="java.lang.Float"/>
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
@@ -98,11 +100,11 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="200" y="20" width="172" height="30" uuid="78ffcb03-0b4c-4fe5-927a-566b2555fbea"/>
+				<reportElement x="172" y="20" width="228" height="30" uuid="78ffcb03-0b4c-4fe5-927a-566b2555fbea"/>
 				<textElement>
-					<font size="22"/>
+					<font fontName="MB" size="22"/>
 				</textElement>
-				<text><![CDATA[Table Demo]]></text>
+				<text><![CDATA[Mercedes-Benz 奔驰]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -139,26 +141,32 @@
 									<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
 								</reportElement>
 								<jr:table whenNoDataType="AllSectionsNoDetail">
-									<datasetRun subDataset="ItemData" uuid="3a5e87c1-1e8e-4301-8ea9-e09664b7de75">
+									<datasetRun subDataset="ItemData" uuid="489be57f-8435-4a24-a575-55425f864d66">
+										<datasetParameter name="groupName">
+											<datasetParameterExpression><![CDATA[$F{groupName}]]></datasetParameterExpression>
+										</datasetParameter>
+										<datasetParameter name="subtotal">
+											<datasetParameterExpression><![CDATA[$F{subtotal}]]></datasetParameterExpression>
+										</datasetParameter>
 										<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{items})]]></dataSourceExpression>
 									</datasetRun>
 									<jr:columnGroup width="560" uuid="17fbc9e9-a861-481b-8fca-5521d042ba08">
 										<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [4]"/>
 										<jr:columnFooter style="Table 1_CH" height="30" rowSpan="1">
-											<staticText>
-												<reportElement x="0" y="0" width="560" height="30" uuid="8d0d1ddc-584c-4844-812b-5201cbdb809d"/>
+											<textField>
+												<reportElement x="0" y="0" width="560" height="30" uuid="6def3516-a576-4ef5-b41e-ffa91c3f74c3"/>
 												<textElement textAlignment="Right" verticalAlignment="Middle"/>
-												<text><![CDATA[subtotal]]></text>
-											</staticText>
+												<textFieldExpression><![CDATA[$P{subtotal}]]></textFieldExpression>
+											</textField>
 										</jr:columnFooter>
 										<jr:columnGroup width="560" uuid="91eb225b-22b1-4d04-ba82-f3ac9f910971">
 											<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [4]"/>
 											<jr:columnHeader style="Table 1_CH" height="30" rowSpan="1">
-												<staticText>
-													<reportElement x="0" y="0" width="560" height="30" uuid="d0ddd862-dd18-4358-9a47-c3ed6ebb6dd5"/>
+												<textField>
+													<reportElement x="0" y="0" width="560" height="30" uuid="ac95fe02-e244-4514-99c7-d392379a98b0"/>
 													<textElement verticalAlignment="Middle"/>
-													<text><![CDATA[group name]]></text>
-												</staticText>
+													<textFieldExpression><![CDATA[$P{groupName}]]></textFieldExpression>
+												</textField>
 											</jr:columnHeader>
 											<jr:column width="140" uuid="0f7730f2-7b7a-4877-9342-ad472ea9dd18">
 												<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
@@ -171,6 +179,7 @@
 												<jr:detailCell style="Table 1_TD" height="30">
 													<textField>
 														<reportElement x="0" y="0" width="140" height="30" uuid="a59aaf23-9251-4d70-bbf5-360db789e8b6"/>
+														<textElement verticalAlignment="Middle"/>
 														<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
 													</textField>
 												</jr:detailCell>
@@ -186,6 +195,7 @@
 												<jr:detailCell style="Table 1_TD" height="30">
 													<textField>
 														<reportElement x="0" y="0" width="140" height="30" uuid="f08d6b38-1fcf-495e-aee7-537a4d87c8fd"/>
+														<textElement verticalAlignment="Middle"/>
 														<textFieldExpression><![CDATA[$F{desc}]]></textFieldExpression>
 													</textField>
 												</jr:detailCell>
@@ -201,6 +211,7 @@
 												<jr:detailCell style="Table 1_TD" height="30">
 													<textField>
 														<reportElement x="0" y="0" width="140" height="30" uuid="bfc50e90-0d4d-4960-8513-04d54cc442ee"/>
+														<textElement verticalAlignment="Middle"/>
 														<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
 													</textField>
 												</jr:detailCell>
@@ -213,7 +224,13 @@
 												<jr:columnFooter style="Table 1_CH" height="0" rowSpan="1">
 													<property name="com.jaspersoft.studio.unit.height" value="px"/>
 												</jr:columnFooter>
-												<jr:detailCell style="Table 1_TD" height="30"/>
+												<jr:detailCell style="Table 1_TD" height="30">
+													<textField>
+														<reportElement x="0" y="0" width="140" height="30" uuid="a872d02e-a267-4959-a013-0f9a619700b3"/>
+														<textElement verticalAlignment="Middle"/>
+														<textFieldExpression><![CDATA[$F{discount}]]></textFieldExpression>
+													</textField>
+												</jr:detailCell>
 											</jr:column>
 										</jr:columnGroup>
 									</jr:columnGroup>
