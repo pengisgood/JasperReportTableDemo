@@ -38,11 +38,11 @@ public class JasperReportService {
                     ))
                     .build(),
                 ItemGroup.builder()
-                    .groupName("M1001")
+                    .groupName("C235492")
                     .subtotal(999.96F)
                     .items(asList(
-                        Item.builder().code("00115801").desc("进行附加组件的B类保养范围").discount(0.85F).price(9389.32F).build(),
-                        Item.builder().code("MA2780940004").desc("进行附加组件的B类保养范围").discount(0.85F).price(9389.32F)
+                        Item.builder().code("553465654").desc("进行附加组件的B类保养范围").discount(0.85F).price(9389.32F).build(),
+                        Item.builder().code("DA2339894234").desc("进行附加组件的B类保养范围").discount(0.85F).price(9389.32F)
                             .build()
                     ))
                     .build()
