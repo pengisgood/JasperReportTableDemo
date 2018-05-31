@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+    compile files('libs/MBFont.jar')
     compile 'org.springframework:spring-context-support'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.projectlombok:lombok:1.16.8'
